@@ -12,10 +12,6 @@ export class Order1627080254533 implements MigrationInterface {
             isPrimary: true,
           },
           {
-            name: 'name',
-            type: 'varchar',
-          },
-          {
             name: 'order_date',
             type: 'timestamp',
             default: 'now()',
@@ -33,7 +29,7 @@ export class Order1627080254533 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'products_id',
+            name: 'product_id',
             type: 'varchar',
           },
           {
@@ -60,7 +56,7 @@ export class Order1627080254533 implements MigrationInterface {
             name: 'FkProduct',
             referencedTableName: 'products',
             referencedColumnNames: ['id'],
-            columnNames: ['products_id'],
+            columnNames: ['product_id'],
             onDelete: 'SET NULL',
             onUpdate: 'SET NULL',
           },
