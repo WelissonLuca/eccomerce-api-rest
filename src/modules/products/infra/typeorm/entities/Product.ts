@@ -1,4 +1,3 @@
-import { User } from '@modules/accounts/infra/typeorm/entities/User';
 import {
   Column,
   CreateDateColumn,

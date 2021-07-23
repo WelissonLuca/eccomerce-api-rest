@@ -16,6 +16,9 @@ class User {
   name: string;
 
   @Column()
+  cpf: string;
+
+  @Column()
   email: string;
 
   @Column()
@@ -23,6 +26,9 @@ class User {
 
   @Column()
   enable: boolean;
+
+  @Column()
+  gender: string;
 
   @CreateDateColumn()
   created_at: Date;
