@@ -9,8 +9,10 @@ import { User } from '../../infra/typeorm/entities/User';
 interface IUserRequest {
   name: string;
   email: string;
+  cpf: string;
   password: string;
   enable?: boolean;
+  gender: string;
 }
 
 @injectable()
@@ -22,7 +24,9 @@ class CreateUserUseCase {
   async execute({
     name,
     email,
+    cpf,
     password,
+    gender,
     enable = true,
   }: IUserRequest): Promise<User> {
     if (!email) throw new AppError('Email incorrect!');
@@ -35,9 +39,11 @@ class CreateUserUseCase {
 
     const result = this.userRepository.create({
       name,
+      cpf,
       email,
-      enable,
       password: passwordHash,
+      gender,
+      enable,
     });
 
     return result;
