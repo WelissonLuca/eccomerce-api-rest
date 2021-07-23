@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
+    "start": "node dist/shared/infra/http/server.js",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "dev": "env NODE_ENV=test ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "test": "env NODE_ENV=test&&jest --runInBand --forceExit --coverage --silent --detectOpenHandles"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
