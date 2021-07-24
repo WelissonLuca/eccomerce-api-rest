@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-@Entity('orders')
+@Entity('products')
 class Product {
   @PrimaryColumn()
   readonly id: string;

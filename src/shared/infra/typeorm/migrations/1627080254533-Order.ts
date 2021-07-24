@@ -26,11 +26,11 @@ export class Order1627080254533 implements MigrationInterface {
           },
           {
             name: 'client_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'product_id',
-            type: 'varchar',
+            type: 'uuid',
           },
           {
             name: 'created_at',

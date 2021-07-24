@@ -11,10 +11,7 @@ class ListUserUseCase {
     private userRepository: IUserRepository
   ) {}
   async execute(): Promise<User[]> {
-    const [name, email, cpf, gender, created_at, updated_at] =
-      await this.userRepository.findAll();
-
-    const result = [name, email, cpf, gender, created_at, updated_at];
+    const result = await this.userRepository.findAll();
 
     return result;
   }
