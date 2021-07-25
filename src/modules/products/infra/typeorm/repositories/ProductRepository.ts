@@ -16,12 +16,14 @@ class ProductRepository implements IProductRepository {
   async create({
     name,
     color,
+    note,
     size,
     value,
   }: ICreateProductDTO): Promise<Product> {
     const product = this.repository.create({
       name,
       color,
+      note,
       size,
       value,
     });
@@ -43,12 +45,12 @@ class ProductRepository implements IProductRepository {
   }
   async updateProduct(
     id: string,
-    { color, value }: IUpdateProductDTO
+    { color, note, value }: IUpdateProductDTO
   ): Promise<void> {
     await this.repository
       .createQueryBuilder()
       .update()
-      .set({ color, value })
+      .set({ color, note, value })
       .where('id = :id')
       .setParameters({ id })
       .execute();

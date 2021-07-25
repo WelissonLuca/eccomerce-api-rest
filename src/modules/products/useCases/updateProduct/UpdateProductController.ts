@@ -6,11 +6,12 @@ import { UpdateProductUseCase } from './UpdateProductUseCase';
 class UpdateProductController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const { color, value } = request.body;
+    const { note, color, value } = request.body;
 
     const updateProductUseCase = container.resolve(UpdateProductUseCase);
 
     const product = await updateProductUseCase.execute(id, {
+      note,
       color,
       value,
     });

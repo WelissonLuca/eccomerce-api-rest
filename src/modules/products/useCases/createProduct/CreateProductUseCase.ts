@@ -7,6 +7,7 @@ import { Product } from '../../infra/typeorm/entities/Product';
 
 interface IProductRequest {
   name: string;
+  note: string;
   color: string;
   size: string;
   value: string;
@@ -20,6 +21,7 @@ class CreateProductUseCase {
   ) {}
   async execute({
     name,
+    note,
     color,
     size,
     value,
@@ -28,6 +30,7 @@ class CreateProductUseCase {
 
     const result = this.productRepository.create({
       name,
+      note,
       color,
       size,
       value,

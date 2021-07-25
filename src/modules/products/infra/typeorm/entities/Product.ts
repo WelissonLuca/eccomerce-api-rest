@@ -16,10 +16,10 @@ class Product {
   name: string;
 
   @Column()
-  note: string;
+  color: string;
 
   @Column()
-  color: string;
+  note: string;
 
   @Column()
   size: string;
