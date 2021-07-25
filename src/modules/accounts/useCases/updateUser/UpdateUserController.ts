@@ -8,9 +8,9 @@ class UpdateUserController {
     const { id } = request.params;
     const { name, email, oldPassword, password } = request.body;
 
-    const createUserUseCase = container.resolve(UpdateUserUseCase);
+    const updateUserUseCase = container.resolve(UpdateUserUseCase);
 
-    const user = await createUserUseCase.execute(id, oldPassword, {
+    const user = await updateUserUseCase.execute(id, oldPassword, {
       name,
       email,
       password,
