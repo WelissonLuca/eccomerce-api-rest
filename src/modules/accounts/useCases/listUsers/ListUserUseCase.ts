@@ -10,7 +10,7 @@ class ListUserUseCase {
     @inject('UserRepository')
     private userRepository: IUserRepository
   ) {}
-  async execute(): Promise<User[]> {
+  async execute(): Promise<User[]> {  
     const result = await this.userRepository.findAll();
 
     return result;
