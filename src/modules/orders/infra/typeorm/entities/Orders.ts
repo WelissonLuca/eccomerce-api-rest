@@ -31,6 +31,12 @@ class Order {
   @Column()
   payment_methods: string;
 
+  @Column()
+  client_id: string;
+
+  @Column()
+  product_id: string;
+
   @CreateDateColumn()
   created_at: Date;
 
