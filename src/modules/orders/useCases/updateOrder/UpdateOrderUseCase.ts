@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { AppError } from '@shared/errors/AppError';
 import { IOrderRepository } from '@modules/orders/repositories/IOrderRepository';
+import { AppError } from '@shared/errors/AppError';
 
 interface IProductRequest {
   note?: string;

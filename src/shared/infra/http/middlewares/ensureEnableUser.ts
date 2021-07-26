@@ -14,7 +14,7 @@ export async function ensureEnableUser(
 
   const { enable } = await usersRepositories.findById(user_id);
 
-  if (enable) {
+  if (!enable) {
     return next();
   }
 

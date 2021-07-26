@@ -6,6 +6,9 @@ import { FindproductByIdController } from '@modules/products/useCases/findProduc
 import { ListProductsController } from '@modules/products/useCases/listProducts/ListProductsController';
 import { UpdateProductController } from '@modules/products/useCases/updateProduct/UpdateProductController';
 
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
+import { ensureEnableUser } from '../middlewares/ensureEnableUser';
+
 const productRouter = Router();
 
 const createProductController = new CreateProductController();
@@ -14,10 +17,35 @@ const findByIdProductController = new FindproductByIdController();
 const deleteProductController = new DeleteProductByIdController();
 const updateProductController = new UpdateProductController();
 
-productRouter.post('/product', createProductController.handle);
-productRouter.get('/product', listProductController.handle);
-productRouter.get('/product/:id', findByIdProductController.handle);
-productRouter.delete('/product/:id', deleteProductController.handle);
-productRouter.put('/product/:id', updateProductController.handle);
+productRouter.post(
+  '/product',
+  ensureAuthenticated,
+  ensureEnableUser,
+  createProductController.handle
+);
+productRouter.get(
+  '/product',
+  ensureAuthenticated,
+  ensureEnableUser,
+  listProductController.handle
+);
+productRouter.get(
+  '/product/:id',
+  ensureAuthenticated,
+  ensureEnableUser,
+  findByIdProductController.handle
+);
+productRouter.delete(
+  '/product/:id',
+  ensureAuthenticated,
+  ensureEnableUser,
+  deleteProductController.handle
+);
+productRouter.put(
+  '/product/:id',
+  ensureAuthenticated,
+  ensureEnableUser,
+  updateProductController.handle
+);
 
 export { productRouter };
